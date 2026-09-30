@@ -1,0 +1,50 @@
+body {
+    background-color: #f8f9fa;
+    color: #000000;
+    padding: 24px 16px;
+}
+
+.container-fluid {
+    max-width: 860px;
+    margin: 0 auto 20px auto;
+}
+
+.documentation {
+    max-width: 860px;
+    margin: 40px auto 0 auto;
+    padding-top: 24px;
+    border-top: 2px solid #dee2e6;
+}
+
+.documentation header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #000000;
+}
+
+/* Documentation Cards */
+.documentation-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.documentation-card h3 {
+    color: #000000;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+}
+
+.documentation-image {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.documentation-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+}

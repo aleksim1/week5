@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
+        <link href="./css/styles.css" rel="stylesheet">
+        <title>Week5</title>
+    </head>
+    <body>
+
+        <div>
+            <strong>MySQL server time:</strong> <span id="server-time"></span>
+        </div>
+
+        <div class="visitor-count">
+            <p>Total page Visits: <span id="visit-count">...</span></p>
+        </div>
+
+        <div id="user-capital"></div>
+
+        <section class="documentation">
+            <header>
+                <h2>Week 4 documentation</h2>
+            </header>
+
+            <article class="documentation-card">
+                <h3> Application description </h3>
+                <p>
+                    It's a simple todo application that allows users to add and remove tasks from a list using frontend and backend with MySQL database.
+                </p>
+            </article>
+
+            <article class="documentation-card">
+                <h3> Frontend -> Backend -> Database communication works </h3>
+                <p>
+                    Communication between all the layers of the application are available to see on the website. Screenshot of a succesful get request from the backend which is displayed on the frontend.
+                </p>
+                <figure class="documentation-image">
+                    <img src="https://a3s.fi/swift/v1/week4-aleksim/communication.png" alt="Communication"/>
+                </figure>
+            </article>
+
+            <article class="documentation-card">
+                <h3> Database persistance </h3>
+                <p>
+                    Adding tasks to the list which are displayed on the frontend and stored in the database. Deleting the MySQL pod in rahti and checking back to see if the tasks are still there.
+                </p>
+                <figure class="documentation-image">
+                    <img src="https://a3s.fi/swift/v1/week4-aleksim/persistance1.png" alt="Persistence Step 1"/>
+                </figure>
+                <figure class="documentation-image">
+                    <img src="https://a3s.fi/swift/v1/week4-aleksim/persistance2.png" alt="Persistence Step 2"/>
+                </figure>
+                <figure class="documentation-image">
+                    <img src="https://a3s.fi/swift/v1/week4-aleksim/persistance3.png" alt="Persistence Step 3"/>
+                </figure>
+            </article>
+
+            <article class="documentation-card">
+                <h3> Pod Recovery </h3>
+                <p>
+                    Deleting the backend pod in rahti and the controller automatically instantly deployed another pod to replace the deleted one.
+                </p>
+                <p> 
+                    A new pod is created because the cluster expects to have a desired amount of pods running at all times. If it detects that a pod is missing it will try to create one automatically.<br>
+                    The resource responsible for this action is a kubernetes controller.
+                </p>
+            
+                <figure class="documentation-image">
+                    <img src="https://a3s.fi/swift/v1/week4-aleksim/recovery.png" alt="Pod Recovery"/>
+                </figure>
+            </article>
+
+            <article class="documentation-card">
+                <h3> Scaling Experiment </h3>
+                <p>
+                    Scaled the backend replicas to 4 and checked them in rahti. The frontend is able to communicate with the replicas because a backend service is automatically distributing the requests.
+                </p>
+                <figure class="documentation-image">
+                    <img src="https://a3s.fi/swift/v1/week4-aleksim/scaling.png" alt="Scaling"/>
+                </figure>
+            </article>
+
+
+            <article class="documentation-card">
+                <h3> Application Update </h3>
+                <p>
+                    Updated the frontend version to 1.0.1 and reployed the application. changing the version in yaml. after saving the service automatically deployed the new version of the frontend.
+                </p>
+                <figure class="documentation-image">
+                    <img src="https://a3s.fi/swift/v1/week4-aleksim/app_update.png" alt=" Update"/>
+                </figure>
+            </article>
+
+            <article class="documentation-card">
+                <h3>Challenges</h3>
+                <p>
+                    One of the challenges I faced during the homework was the deployment of the application to rahti. There's multiple resources that need to be deployed and configured somewhat correctly for it to work. I solved issues by reading documentation and googling the errors I was getting. 
+                </p>
+            </article>
+            </section>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+            <script src="/static/index.js" type="module"></script>
+
+    </body>
+
+</html>

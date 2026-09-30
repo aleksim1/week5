@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: docker.io/aleksi123123/week5-backend-1.0.1
+          ports:
+            - containerPort: 8000
+          env:
+            - name: HOME
+              value: "/tmp"
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: week5-config
+                  key: PORT
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: week5-config
+                  key: DB_HOST
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: week5-config
+                  key: DB_NAME
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: week5-config
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: week5-secrets
+                  key: DB_PASSWORD
+            - name: REST_COUNTRIES_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: week5-secrets
+                  key: REST_COUNTRIES_API_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  ports:
+    - port: 8000
+      targetPort: 8000
+  selector:
+    app: backend
